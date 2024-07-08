@@ -29,9 +29,7 @@ public class UVSimGUI extends javax.swing.JFrame {
      * Constructor for UVSimGUI
      */
     public UVSimGUI() {
-        memory = new Memory();
-        ioHandler = new IOHandler(memory, this);
-        cpu = new CPU(memory, ioHandler);
+        cpu = new CPU(this);
         initComponents();
     }
 
@@ -218,7 +216,7 @@ public class UVSimGUI extends javax.swing.JFrame {
                 int i = 0;
                 while (scanner.hasNextInt() && i < 100) {
                     int instruction = scanner.nextInt();
-                    memory.setData(i, instruction);
+                    cpu.getMemory().setData(i, instruction);
                     i++;
                 }
                 appendOutput("Program loaded successfully.\n");
@@ -240,7 +238,7 @@ public class UVSimGUI extends javax.swing.JFrame {
      * Resets the simulator.
      */
     private void resetProgram() {
-        memory.clear();
+        cpu.getMemory().clear();
         cpu.reset();
         outputArea.setText("");
         appendOutput("Program reset.\n");

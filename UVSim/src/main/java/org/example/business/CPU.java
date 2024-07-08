@@ -4,6 +4,7 @@ import org.example.data.Memory;
 import org.example.business.BranchOperations;
 import org.example.business.ArithmeticOperations;
 import org.example.business.IOHandler;
+import org.example.presentation.UVSimGUI;
 
 public class CPU {
     private int programCounter;
@@ -13,11 +14,11 @@ public class CPU {
     private BranchOperations branchOperations;
     private IOHandler ioHandler;
 
-    public CPU(Memory mem, IOHandler ioHandler) {
-        this.memory = mem;
+    public CPU(UVSimGUI uvSimGUI) {
+        this.memory = new Memory();
         this.arithmeticOperations = new ArithmeticOperations(this);
         this.branchOperations = new BranchOperations(this);
-        this.ioHandler = ioHandler;
+        this.ioHandler = new IOHandler(memory, uvSimGUI);
     }
 
     public int getProgramCounter() {
