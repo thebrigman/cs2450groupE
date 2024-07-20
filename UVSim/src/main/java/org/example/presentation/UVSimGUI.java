@@ -135,7 +135,7 @@ public class UVSimGUI extends javax.swing.JFrame {
         loadProgram();
     }//GEN-LAST:event_loadProgramButtonActionPerformed
 
-    private void runProgramButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runProgramButtonActionPerformed
+    void runProgramButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runProgramButtonActionPerformed
         // TODO add your handling code here:
         runProgram();
     }//GEN-LAST:event_runProgramButtonActionPerformed
